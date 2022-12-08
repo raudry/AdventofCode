@@ -20,61 +20,64 @@ int main(){
     while( guide >> opponentElf >> playerElf)
     {
         /*Opponent Guide:       Player Guide:
-            A = Rock                X = Rock        +1
-            B = Paper               Y = Paper       +2
-            C = Scissors            Z = Scissors    +3
+            A = Rock                X = Lose      
+            B = Paper               Y = Draw    
+            C = Scissors            Z = Win     
         */
         switch(opponentElf)
         {
-            case 'A':
-                    //draw
-                    if(playerElf == 'X') //+1
+            //Rock
+            case 'A': 
+                    //Scissors +3
+                    if(playerElf == 'X') //Lose
                     {
-                        totalScore += 4;    
+                        totalScore += 3;    
                     }
-                    //win
-                    else if(playerElf == 'Y') //+2
+                    //Rock +1
+                    else if(playerElf == 'Y') //Draw +3
+                    {
+                        totalScore += 4;
+                    }
+                    //Paper +2
+                    else if(playerElf == 'Z') //Win +6
                     {
                         totalScore += 8;
                     }
-                    //loss
-                    else if(playerElf == 'Z') //+3
-                    {
-                        totalScore += 3;
-                    }
                     break;
+            //Paper
             case 'B':
-                    //loss
-                    if(playerElf == 'X') //+1
+                    //Rock +1
+                    if(playerElf == 'X') //Lose
                     {
                         totalScore += 1;
                     }
-                    //draw
-                    else if(playerElf == 'Y') //+2
+                    //Paper +2
+                    else if(playerElf == 'Y') //Draw +3
                     {
                         totalScore += 5;
                     }
-                    //win
-                    else if(playerElf == 'Z') //+3
+                    //Scissors +3
+                    else if(playerElf == 'Z') //Win +6
                     {
                         totalScore += 9;
                     }
                     break;
+            //Scissors
             case 'C':
-                    //win
-                    if(playerElf == 'X') //+1
-                    {
-                        totalScore += 7;
-                    }
-                    //loss
-                    else if(playerElf == 'Y') //+2
+                    //Paper +2
+                    if(playerElf == 'X') //Lose
                     {
                         totalScore += 2;
                     }
-                    //draw
-                    else if(playerElf == 'Z') //+3
+                    //Scissors +3
+                    else if(playerElf == 'Y') //Draw +3
                     {
                         totalScore += 6;
+                    }
+                    //Rock +1
+                    else if(playerElf == 'Z') //Win +6
+                    {
+                        totalScore += 7;
                     }
                     break;
             default:
